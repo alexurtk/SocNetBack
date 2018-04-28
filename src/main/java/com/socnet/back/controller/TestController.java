@@ -88,8 +88,12 @@ public class TestController {
 
         String[] arr = new String[]{"model1","model2"};
 
+        List<String> list2 = new ArrayList<>();
+        list2.add("mazda");
+
 
         filter.addCondition(new Condition.Builder().setComparison(Comparison.in).setField("model").setValue(list).build());
+        filter.addCondition(new Condition.Builder().setComparison(Comparison.in).setField("brand").setValue(list2).build());
 
         List<Car> carList = carRepository.findAll(filter);
 
