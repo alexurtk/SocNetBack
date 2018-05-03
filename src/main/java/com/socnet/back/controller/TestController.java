@@ -6,12 +6,17 @@ import com.socnet.back.persistence.filter.internal.Condition;
 import com.socnet.back.persistence.model.Car;
 import com.socnet.back.persistence.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,7 +35,7 @@ public class TestController {
 
 
     @GetMapping(value = "/t1")
-    public String test(){
+    public ResponseEntity<List<Car>> test(){
 //        Car passat = new Car();
 //        passat.brand = "volkswagen";
 //        passat.model = "passat";
@@ -100,7 +105,15 @@ public class TestController {
 
 
 
-        return "test";
+        return new ResponseEntity<>(carList, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/test2")
+    public ResponseEntity<List<String>> test2(){
+        List<String> list = new ArrayList<>();
+        list.add(Timestamp.valueOf(LocalDateTime.now()).toString());
+
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
 }
