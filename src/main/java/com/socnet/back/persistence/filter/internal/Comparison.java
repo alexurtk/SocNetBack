@@ -11,6 +11,6 @@ public enum Comparison {
     ne,
     // is null
     isnull,
-
+    // in (...)
     in
 }

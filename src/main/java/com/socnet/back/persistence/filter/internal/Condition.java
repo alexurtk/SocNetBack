@@ -2,33 +2,22 @@ package com.socnet.back.persistence.filter.internal;
 
 public class Condition {
 
-    public Type type;
     public Comparison comparison;
 
     public Object value;
 
     public String field;
 
-    public Condition() {
-    }
-
-    public Condition(Type type, Comparison comparison, Object value, String field) {
-        this.type = type;
+    public Condition(Comparison comparison, Object value, String field) {
         this.comparison = comparison;
         this.value = value;
         this.field = field;
     }
 
     public static class Builder {
-        private Type type;
         private Comparison comparison;
         private Object value;
         private String field;
-
-        public Builder setType(Type type) {
-            this.type = type;
-            return this;
-        }
 
         public Builder setComparison(Comparison comparison) {
             this.comparison = comparison;
@@ -46,7 +35,7 @@ public class Condition {
         }
 
         public Condition build() {
-            return new Condition(type, comparison, value, field);
+            return new Condition(comparison, value, field);
         }
     }
 }
