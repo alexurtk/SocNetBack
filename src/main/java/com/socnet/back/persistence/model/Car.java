@@ -24,4 +24,13 @@ public class Car {
     @Column(name = "YEAR")
     private Year year;
 
+    @Column(name = "COMPLAINT_ID")
+    private String complaintId;
+
+    @Column(name = "TEST_VAL")
+    private String testVal;
+
+    @Column(name = "ANOTHER_VAL")
+    private Long anotherVal;
+
 }

@@ -63,6 +63,19 @@ public class Filter implements Specification {
     }
 
     private Predicate buildInPredicateToCriteria(Condition condition, Root root, CriteriaQuery criteriaQuery, CriteriaBuilder criteriaBuilder) {
-        return root.get(condition.field).in(condition.value);
+//        ArrayList list = new ArrayList<>();
+//        ArrayList list1 = (ArrayList) condition.value;
+//
+//        ((ArrayList) condition.value)
+//                .stream()
+//                .m
+//
+//        for (Object obj:list1) {
+//            list.add(obj);
+//        }
+        Object[] arr = new Object[]{5L, 6L};
+
+
+        return root.get(condition.field).in(arr);
     }
 }
